@@ -1,5 +1,5 @@
 from google.adk.agents import LlmAgent
-from google.adk.models.lite_llm import LiteLlm
+# from google.adk.models.lite_llm import LiteLlm
 from google.genai import types
 from google.adk.planners import BuiltInPlanner
 
@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 engine_id = os.environ.get("GOOGLE_CLOUD_AGENT_ENGINE_ID", "NULL_ENGINE_ID")
-logger.info("Using Google Cloud Agent Engine ID: %s", engine_id)
+logger.info("#####  Using Google Cloud Agent Engine ID: %s", engine_id)
 
 def add(a: int, b: int) -> int:
     """Add two integers.
@@ -37,18 +37,20 @@ def subtract(a: int, b: int) -> int:
     return a - b
 
 # To use local OpenAI-compatible endpoint
-llm = LiteLlm(
-    model="LOCAL",              # "openai/" prefix = OpenAI-compatible endpoint
-    api_base="http://localhost:8080/v1",  # note: api_base, not base_url
-    api_key="NONE",
-)
+# llm = LiteLlm(
+#     model="LOCAL",              # "openai/" prefix = OpenAI-compatible endpoint
+#     api_base="http://localhost:8080/v1",  # note: api_base, not base_url
+#     api_key="NONE",
+# )
 
 #Set default model
-LlmAgent.set_default_model("gemini-2.5-flash")
+# LlmAgent.set_default_model("gemini-2.5-flash")
+
 
 
 # To use Gemini 2.5 Flash model instead of local OpenAI-compatible endpoint
 # llm = LiteLlm(model="gemini-2.5-flash") 
+llm = "gemini-2.5-flash" 
 # Change env.sample to .env so it will determine whether to use Gemini (AI Studio / Gemini API)or enterprise Vertex with google project
 
 root_agent = LlmAgent(
