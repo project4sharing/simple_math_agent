@@ -44,7 +44,7 @@ def subtract(a: int, b: int) -> int:
 # )
 
 #Set default model
-# LlmAgent.set_default_model("gemini-2.5-flash")
+LlmAgent.set_default_model("gemini-2.5-flash")
 
 
 
@@ -70,10 +70,10 @@ root_agent = LlmAgent(
     generate_content_config = types.GenerateContentConfig(
         temperature=0.0,
         max_output_tokens=256,
-        safety_settings=types.SafetySetting(
-            category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
-            threshold=types.HarmBlockThreshold.BLOCK_NONE
-        ),
+        # safety_settings=types.SafetySetting(
+        #     category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        #     threshold=types.HarmBlockThreshold.BLOCK_NONE
+        # ),
         # Add Model Armor Config
         # model_armor_config=types.ModelArmorConfig(
         #     enable_model_armor=True,
@@ -83,8 +83,6 @@ root_agent = LlmAgent(
     planner=BuiltInPlanner(
         thinking_config=types.ThinkingConfig(
             include_thoughts=True,
-            include_reasoning=True,
-            include_plan=True,
             thinking_budget=1024
         )
     ),
