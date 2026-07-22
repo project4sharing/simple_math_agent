@@ -75,10 +75,10 @@ root_agent = LlmAgent(
         #     threshold=types.HarmBlockThreshold.BLOCK_NONE
         # ),
         # Add Model Armor Config
-        # model_armor_config=types.ModelArmorConfig(
-        #     enable_model_armor=True,
-        #     model_armor_level=types.ModelArmorLevel.STRICT,
-        # ),
+        model_armor_config=types.ModelArmorConfig(
+            enable_model_armor=True,
+            model_armor_level=types.ModelArmorLevel.STRICT,
+        ),
     ),
     planner=BuiltInPlanner(
         thinking_config=types.ThinkingConfig(
