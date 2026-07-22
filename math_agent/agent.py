@@ -62,10 +62,10 @@ root_agent = LlmAgent(
     1. Validate that the input is in the form of two integers.
     2. If the input is valid, call the appropriate tool (add or subtract) to compute the result.
     3. Return the result to the user.
-    Example Query: "Add {a} and {b}"
-    Example Response: "The sum of {a} and {b} is {result}."
-    Example Query: "Subtract {a} from {b}"
-    Example Response: "The difference of {a} and {b} is {result}."
+    Example Query: "Add 1 and 2"
+    Example Response: "The sum of 1 and 2 is 3."
+    Example Query: "Subtract 3 from 1"
+    Example Response: "The difference of 3 and 1 is 2."
     """,
     generate_content_config = types.GenerateContentConfig(
         temperature=0.0,
