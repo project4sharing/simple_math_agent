@@ -12,6 +12,14 @@ logger = logging.getLogger(__name__)
 engine_id = os.environ.get("GOOGLE_CLOUD_AGENT_ENGINE_ID", "NULL_ENGINE_ID")
 logger.info("#####  Using Google Cloud Agent Engine ID: %s", engine_id)
 
+PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT", "NULL_PROJECT_ID")
+LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION", "NULL_LOCATION")
+MODEL_ARMOR_TEMPLATE = os.environ.get("MODEL_ARMOR_TEMPLATE", "NULL_MODEL_ARMOR_TEMPLATE")
+
+logger.info("#####  Using Google Cloud Project ID: %s", PROJECT_ID)
+logger.info("#####  Using Google Cloud Location: %s", LOCATION)
+logger.info("#####  Using Model Armor Template: %s", MODEL_ARMOR_TEMPLATE)
+
 def add(a: int, b: int) -> int:
     """Add two integers.
 
@@ -76,8 +84,8 @@ root_agent = LlmAgent(
         # ),
         # Add Model Armor Config
         model_armor_config=types.ModelArmorConfig(
-            enable_model_armor=True,
-            model_armor_level=types.ModelArmorLevel.STRICT,
+            prompt_template_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/modelArmorPromptTemplates/{MODEL_ARMOR_TEMPLATE}",
+            response_template_name=f"projects/{PROJECT_ID}/locations/{LOCATION}/modelArmorResponseTemplates/{MODEL_ARMOR_TEMPLATE}"
         ),
     ),
     planner=BuiltInPlanner(
