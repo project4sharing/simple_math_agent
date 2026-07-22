@@ -1,0 +1,2 @@
+Run in the SIMPLE_MATH_AGENT
+adk deploy agent_engine --project=PROJECT_ID --region=us-central1 --display_name="Simple math agent" math_agent
