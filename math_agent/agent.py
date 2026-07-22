@@ -70,9 +70,9 @@ root_agent = LlmAgent(
     generate_content_config = types.GenerateContentConfig(
         temperature=0.0,
         max_output_tokens=256,
-        safety_settings=types.SafetySettings(
-            safety_level=types.SafetyLevel.LOW,
-            blocklist_categories=[types.BlocklistCategory.HATE_SPEECH],
+        safety_settings=types.SafetySetting(
+            category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+            threshold=types.HarmBlockThreshold.BLOCK_NONE
         ),
         # Add Model Armor Config
         # model_armor_config=types.ModelArmorConfig(
