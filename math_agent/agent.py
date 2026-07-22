@@ -16,7 +16,7 @@ PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT_ID", "NULL_PROJECT_ID")
 LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION", "NULL_LOCATION")
 MODEL_ARMOR_TEMPLATE = os.environ.get("MODEL_ARMOR_TEMPLATE", "NULL_MODEL_ARMOR_TEMPLATE")
 
-FULL_MODEL_ARMOR_TEMPLATE_NAME = f"projects/{PROJECT_ID}/locations/{LOCATION}/modelArmorPromptTemplates/{MODEL_ARMOR_TEMPLATE}"
+FULL_MODEL_ARMOR_TEMPLATE_NAME = f"projects/{PROJECT_ID}/locations/{LOCATION}/templates/{MODEL_ARMOR_TEMPLATE}"
 
 logger.info("#####  Using Google Cloud Project ID: %s", PROJECT_ID)
 logger.info("#####  Using Google Cloud Location: %s", LOCATION)
