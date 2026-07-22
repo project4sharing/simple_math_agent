@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 engine_id = os.environ.get("GOOGLE_CLOUD_AGENT_ENGINE_ID", "NULL_ENGINE_ID")
 logger.info("#####  Using Google Cloud Agent Engine ID: %s", engine_id)
 
-PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT", "NULL_PROJECT_ID")
+PROJECT_ID = os.environ.get("GOOGLE_CLOUD_PROJECT_ID", "NULL_PROJECT_ID")
 LOCATION = os.environ.get("GOOGLE_CLOUD_LOCATION", "NULL_LOCATION")
 MODEL_ARMOR_TEMPLATE = os.environ.get("MODEL_ARMOR_TEMPLATE", "NULL_MODEL_ARMOR_TEMPLATE")
 
